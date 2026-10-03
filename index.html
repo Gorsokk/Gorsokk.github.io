@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gorsok — Python, AI and web tools</title>
+<meta name="description" content="Gorsok builds Python scripts with AI, Windows tools, small business websites with a customer assistant, and game stream kits. English and French.">
+<style>
+:root{--bg:#0d1016;--bg2:#151a23;--line:#2b3240;--ink:#e9eef7;--mut:#a9b2c3;--gold:#f3c969;--gold2:#c98a2b;--ok:#7ee787}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#0d1016}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at 25% 0%,#1d2330,#0d1016 900px) no-repeat #0d1016;color:var(--ink);line-height:1.6}
+a{color:var(--gold)}
+.wrap{max-width:1040px;margin:auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.brand svg{width:40px;height:40px}
+nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-size:15px}
+.lang{border:1px solid var(--line);background:var(--bg2);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;margin-left:14px}
+.hero{padding:56px 0 40px}
+.hero h1{font-size:48px;line-height:1.08;letter-spacing:-1px;max-width:780px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--mut);font-size:19px;max-width:680px;margin:18px 0 26px}
+.btn{display:inline-block;background:var(--gold);color:#0d1016;font-weight:700;border-radius:10px;padding:12px 20px;text-decoration:none;margin-right:10px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+h2{font-size:30px;margin:48px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card.gold{border-color:var(--gold2)}
+.tag{display:inline-block;font-size:12px;letter-spacing:1.5px;color:#8c95a6;margin-bottom:8px;text-transform:uppercase}
+.card h3{font-size:20px;margin-bottom:8px}
+.card p{color:var(--mut);font-size:15px}
+.card ul{list-style:none;margin-top:10px}
+.card li{color:#d7dde8;font-size:15px;padding-left:20px;position:relative}
+.card li:before{content:"✓";color:var(--ok);position:absolute;left:0}
+.links{margin-top:14px;font-size:15px}
+.links a{margin-right:14px}
+.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.promise div{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:15px;color:#d7dde8}
+.promise b{display:block;color:var(--gold);margin-bottom:4px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 40px;color:var(--mut);font-size:14px}
+@media (max-width:800px){.grid,.grid3,.promise{grid-template-columns:1fr}.hero h1{font-size:34px}nav a{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 800 800" aria-hidden="true"><defs><linearGradient id="g" x1="170" y1="170" x2="630" y2="630" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F3C969"/><stop offset="1" stop-color="#C98A2B"/></linearGradient></defs><rect width="800" height="800" rx="400" fill="#151a23"/><path d="M 562.6 237.4 A 230 230 0 1 0 630 400" fill="none" stroke="url(#g)" stroke-width="88" stroke-linecap="round"/><path d="M 630 400 L 495 400" fill="none" stroke="url(#g)" stroke-width="88" stroke-linecap="round"/><path d="M 300 335 L 362 400 L 300 465" fill="none" stroke="#E9EEF7" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Gorsok
+  </div>
+  <nav>
+    <a href="#work" data-en="Work" data-fr="Projets"></a>
+    <a href="#services" data-en="Services" data-fr="Services"></a>
+    <a href="#contact" data-en="Contact" data-fr="Contact"></a>
+    <button class="lang" id="lang">FR</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 data-en="I build tools that <span>save small businesses time.</span>" data-fr="Je crée des outils qui <span>font gagner du temps aux petites entreprises.</span>"></h1>
+  <p data-en="Python scripts with AI, Windows tools, websites with a customer assistant, and stream kits. Fixed price before I start, tested on your real examples, explained in plain words. English and French." data-fr="Scripts Python avec IA, outils Windows, sites web avec assistant client et kits de stream. Prix fixe avant de commencer, testé sur vos vrais exemples, expliqué en mots simples. Français et anglais."></p>
+  <a class="btn" href="demo-receptionniste/" data-en="Try the AI receptionist demo" data-fr="Essayer la démo de réceptionniste IA"></a>
+  <a class="btn ghost" href="https://www.fiverr.com/gorsok" data-en="Hire me on Fiverr" data-fr="M'embaucher sur Fiverr"></a>
+</section>
+
+<h2 id="work" data-en="Work" data-fr="Projets"></h2>
+<div class="grid">
+  <div class="card gold">
+    <div class="tag" data-en="Demo · small businesses" data-fr="Démo · petites entreprises"></div>
+    <h3 data-en="AI receptionist for a small business website" data-fr="Réceptionniste IA pour le site d'une petite entreprise"></h3>
+    <p data-en="Small businesses lose customers when nobody answers at night. This assistant answers questions, takes quote requests and alerts the owner right away." data-fr="Les petites entreprises perdent des clients quand personne ne répond le soir. Cet assistant répond aux questions, prend les demandes de soumission et alerte le propriétaire tout de suite."></p>
+    <ul>
+      <li data-en="Answers in English and French" data-fr="Répond en français et en anglais"></li>
+      <li data-en="Takes requests and shows them in an owner panel" data-fr="Prend les demandes et les affiche côté propriétaire"></li>
+      <li data-en="Works on phones" data-fr="Fonctionne sur téléphone"></li>
+    </ul>
+    <div class="links"><a href="demo-receptionniste/" data-en="Try the demo →" data-fr="Essayer la démo →"></a></div>
+  </div>
+  <div class="card">
+    <div class="tag" data-en="Own project · Windows app" data-fr="Projet personnel · appli Windows"></div>
+    <h3>OSRS toolkit</h3>
+    <p data-en="A free Windows toolkit for game players: live dashboard, alerts and an AI connector, plus two plugins approved on the RuneLite Plugin Hub." data-fr="Une boîte à outils Windows gratuite pour les joueurs : tableau de bord en direct, alertes et connecteur IA, plus deux plugins approuvés sur le RuneLite Plugin Hub."></p>
+    <ul>
+      <li data-en="Tray app, auto-start and installer" data-fr="Icône dans la barre des tâches, démarrage auto et installateur"></li>
+      <li data-en="Installer built automatically by GitHub Actions" data-fr="Installateur construit automatiquement par GitHub Actions"></li>
+    </ul>
+    <div class="links"><a href="https://github.com/Gorsokk/osrs-toolkit">GitHub →</a></div>
+  </div>
+  <div class="card">
+    <div class="tag" data-en="Own project · streaming" data-fr="Projet personnel · stream"></div>
+    <h3 data-en="Game stream kit" data-fr="Kit de stream pour un jeu"></h3>
+    <p data-en="My own Twitch kit: overlays and scenes in the game's mood, chat commands with live game info, and an AI co-host that answers viewer questions." data-fr="Mon propre kit Twitch : overlays et scènes dans l'ambiance du jeu, commandes de chat avec infos de jeu en direct, et un co-animateur IA qui répond aux questions des spectateurs."></p>
+    <div class="links"><a href="https://www.fiverr.com/gorsok/set-up-a-custom-twitch-stream-kit-for-your-game" data-en="Get one for your game →" data-fr="En avoir un pour votre jeu →"></a></div>
+  </div>
+  <div class="card">
+    <div class="tag" data-en="Service" data-fr="Service"></div>
+    <h3 data-en="Python bug fixes, explained" data-fr="Correction de scripts Python, expliquée"></h3>
+    <p data-en="Your script crashes? I find the real cause, fix it, test it, and send a short note: the problem, the fix, and how to avoid it next time." data-fr="Votre script plante ? Je trouve la vraie cause, je corrige, je teste, et j'envoie une courte note : le problème, la correction et comment l'éviter."></p>
+    <div class="links"><a href="https://www.fiverr.com/gorsok/debug-and-fix-errors-in-your-python-script" data-en="Fix my script →" data-fr="Corriger mon script →"></a></div>
+  </div>
+</div>
+
+<h2 id="services" data-en="Services" data-fr="Services"></h2>
+<div class="grid3">
+  <div class="card"><h3 data-en="Automation with AI" data-fr="Automatisation avec IA"></h3><p data-en="Scripts that collect, clean and merge data, send alerts and reports, with an AI step when it helps." data-fr="Scripts qui collectent, nettoient et regroupent des données, envoient alertes et rapports, avec une étape IA quand c'est utile."></p><div class="links"><a href="https://www.fiverr.com/gorsok/automate-your-tasks-with-python-scripts-and-ai">Fiverr →</a></div></div>
+  <div class="card"><h3 data-en="Windows tools" data-fr="Outils Windows"></h3><p data-en="Small desktop apps with a clean interface and a one-click installer, instead of a script you run by hand." data-fr="Petites applis avec une interface claire et un installateur en un clic, au lieu d'un script à lancer à la main."></p><div class="links"><a href="https://www.fiverr.com/gorsok/build-a-custom-windows-desktop-app-or-tool-in-python">Fiverr →</a></div></div>
+  <div class="card"><h3 data-en="Websites with an assistant" data-fr="Sites web avec assistant"></h3><p data-en="Simple business websites (1 to 5 pages) with a customer assistant that answers and takes requests." data-fr="Sites simples pour entreprises (1 à 5 pages) avec un assistant qui répond aux clients et prend les demandes."></p><div class="links"><a href="#contact" data-en="Ask me →" data-fr="Me demander →"></a></div></div>
+</div>
+
+<h2 data-en="My guarantees" data-fr="Mes garanties"></h2>
+<div class="promise">
+  <div><b data-en="Fixed price" data-fr="Prix fixe"></b><span data-en="A clear plan and price before you pay." data-fr="Un plan et un prix clairs avant de payer."></span></div>
+  <div><b data-en="Easy setup" data-fr="Installation facile"></b><span data-en="Step-by-step guide, plus screen-share help." data-fr="Guide pas à pas, plus aide par partage d'écran."></span></div>
+  <div><b data-en="14 days of fixes" data-fr="14 jours de corrections"></b><span data-en="Free fixes if it doesn't work as agreed." data-fr="Corrections gratuites si ça ne marche pas comme convenu."></span></div>
+  <div><b data-en="Plain words" data-fr="Mots simples"></b><span data-en="Every delivery explained without jargon." data-fr="Chaque livraison expliquée sans jargon."></span></div>
+</div>
+
+<h2 id="contact" data-en="Contact" data-fr="Contact"></h2>
+<div class="card">
+  <p data-en="The simplest way to work with me is through Fiverr: payment is protected and you can message me before ordering. Tell me what you need; I reply with a plan and a fixed price." data-fr="Le plus simple pour travailler avec moi, c'est Fiverr : le paiement est protégé et vous pouvez m'écrire avant de commander. Dites-moi ce dont vous avez besoin ; je réponds avec un plan et un prix fixe."></p>
+  <div class="links" style="margin-top:16px"><a class="btn" href="https://www.fiverr.com/gorsok" data-en="Message me on Fiverr" data-fr="M'écrire sur Fiverr"></a><a href="https://github.com/Gorsokk">GitHub</a></div>
+</div>
+
+<footer data-en="© 2026 Gorsok · Canada · English and French" data-fr="© 2026 Gorsok · Canada · français et anglais"></footer>
+</div>
+<script>
+let L=(navigator.language||'en').toLowerCase().startsWith('fr')?'fr':'en';
+function apply(){document.documentElement.lang=L;document.querySelectorAll('[data-en]').forEach(e=>e.innerHTML=e.dataset[L]);document.getElementById('lang').textContent=L==='fr'?'EN':'FR';}
+document.getElementById('lang').onclick=()=>{L=L==='fr'?'en':'fr';apply();};
+apply();
+</script>
+</body>
+</html>

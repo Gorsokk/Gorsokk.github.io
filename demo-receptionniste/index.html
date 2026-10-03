@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paysagement Boréal — démo Réceptionniste IA</title>
+<meta name="description" content="Démo : site d'une entreprise fictive avec un assistant qui répond aux clients et prend les demandes de soumission, en français et en anglais.">
+<style>
+:root{--g:#2f6b3f;--g2:#e7f1e9;--ink:#1d2a22;--mut:#5d6b62;--bg:#fbfcfa;--card:#fff;--line:#dfe6e0;--gold:#c98a2b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--g)}
+.demo-bar{background:#14181f;color:#e9eef7;font-size:14px;padding:8px 16px;text-align:center}
+.demo-bar b{color:#f3c969}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;max-width:1080px;margin:auto}
+.logo{font-weight:800;font-size:20px;color:var(--g)}
+nav a{margin-left:18px;text-decoration:none;color:var(--ink);font-size:15px}
+.lang{border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 10px;cursor:pointer;margin-left:14px}
+.hero{max-width:1080px;margin:auto;padding:48px 24px 32px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:42px;line-height:1.1;margin-bottom:14px}
+.hero p{color:var(--mut);font-size:18px;margin-bottom:22px}
+.btn{display:inline-block;background:var(--g);color:#fff;border:0;border-radius:10px;padding:12px 20px;font-size:16px;cursor:pointer;text-decoration:none}
+.hero-img{height:260px;border-radius:18px;background:linear-gradient(160deg,#9cc8a5,#2f6b3f 70%);position:relative;overflow:hidden}
+.hero-img:after{content:"";position:absolute;inset:auto -10% -30% -10%;height:60%;background:#24543a;border-radius:50% 50% 0 0}
+section{max-width:1080px;margin:auto;padding:32px 24px}
+h2{font-size:28px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{color:var(--mut);font-size:15px}
+.price{color:var(--g);font-weight:700;margin-top:8px}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:14px;text-align:center;padding:24px}
+/* chat */
+#chat-btn{position:fixed;right:20px;bottom:20px;background:var(--g);color:#fff;border:0;border-radius:999px;padding:14px 20px;font-size:16px;box-shadow:0 6px 20px rgba(0,0,0,.2);cursor:pointer;z-index:10}
+#chat{position:fixed;right:20px;bottom:84px;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;z-index:10}
+#chat.open{display:flex}
+.chat-h{background:var(--g);color:#fff;padding:12px 16px}
+.chat-h b{display:block}.chat-h small{opacity:.85}
+#log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:#f6f8f6}
+.m{max-width:85%;padding:9px 12px;border-radius:12px;font-size:15px;white-space:pre-wrap}
+.bot{background:#fff;border:1px solid var(--line);align-self:flex-start}
+.me{background:var(--g);color:#fff;align-self:flex-end}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;border-top:1px solid var(--line)}
+.chip{border:1px solid var(--g);color:var(--g);background:#fff;border-radius:999px;padding:5px 10px;font-size:13px;cursor:pointer}
+form.in{display:flex;border-top:1px solid var(--line)}
+form.in input{flex:1;border:0;padding:12px;font-size:15px;outline:none}
+form.in button{border:0;background:#fff;color:var(--g);font-weight:700;padding:0 14px;cursor:pointer}
+/* owner panel */
+.owner{background:#14181f;color:#e9eef7;border-radius:16px;padding:22px}
+.owner h2{color:#f3c969}
+.owner p{color:#a9b2c3}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid #2b3240}
+th{color:#8c95a6;font-weight:600}
+.alert{background:#1f2633;border-left:4px solid #f3c969;padding:10px 12px;margin-top:12px;border-radius:8px;font-size:14px;display:none}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}nav a{display:none}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+<div class="demo-bar" data-fr="<b>Démo</b> — entreprise fictive créée par Gorsok pour montrer un assistant client. Aucune donnée n'est envoyée." data-en="<b>Demo</b> — a fictional business made by Gorsok to show a customer assistant. No data is sent anywhere."></div>
+<header>
+  <div class="logo">🌲 Paysagement Boréal</div>
+  <nav>
+    <a href="#services" data-fr="Services" data-en="Services"></a>
+    <a href="#zone" data-fr="Zone desservie" data-en="Service area"></a>
+    <a href="#proprio" data-fr="Côté propriétaire" data-en="Owner view"></a>
+    <button class="lang" id="lang">EN</button>
+  </nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1 data-fr="Un terrain dont vous êtes fier, sans le casse-tête." data-en="A yard you're proud of, without the headache."></h1>
+    <p data-fr="Aménagement, pelouse et déneigement à Québec et environs. Posez vos questions à notre assistant, même le soir : il répond tout de suite et transmet votre demande." data-en="Landscaping, lawn care and snow removal in and around Quebec City. Ask our assistant anything, even at night: it answers right away and passes on your request."></p>
+    <button class="btn" onclick="openChat(true)" data-fr="Demander une soumission" data-en="Get a quote"></button>
+  </div>
+  <div class="hero-img" aria-hidden="true"></div>
+</div>
+
+<section id="services">
+  <h2 data-fr="Nos services" data-en="Our services"></h2>
+  <div class="grid">
+    <div class="card"><h3 data-fr="Aménagement paysager" data-en="Landscaping"></h3><p data-fr="Plates-bandes, pavé, murets et plantation." data-en="Flower beds, pavers, small walls and planting."></p><div class="price" data-fr="Sur soumission" data-en="Quote on request"></div></div>
+    <div class="card"><h3 data-fr="Entretien de pelouse" data-en="Lawn care"></h3><p data-fr="Tonte chaque semaine, de mai à octobre." data-en="Weekly mowing, May to October."></p><div class="price" data-fr="À partir de 45 $ / visite" data-en="From $45 per visit"></div></div>
+    <div class="card"><h3 data-fr="Déneigement" data-en="Snow removal"></h3><p data-fr="Contrat saisonnier, de novembre à avril." data-en="Seasonal contract, November to April."></p><div class="price" data-fr="À partir de 450 $ / saison" data-en="From $450 per season"></div></div>
+  </div>
+</section>
+
+<section id="zone">
+  <h2 data-fr="Zone desservie et heures" data-en="Service area and hours"></h2>
+  <p data-fr="Québec, Lévis, Sainte-Foy et Charlesbourg. Bureau ouvert du lundi au vendredi, de 8 h à 17 h. L'assistant répond 24 h sur 24." data-en="Quebec City, Lévis, Sainte-Foy and Charlesbourg. Office open Monday to Friday, 8 a.m. to 5 p.m. The assistant answers 24/7."></p>
+</section>
+
+<section id="proprio">
+  <div class="owner">
+    <h2 data-fr="Côté propriétaire : ce que l'entreprise reçoit" data-en="Owner view: what the business receives"></h2>
+    <p data-fr="Chaque demande prise par l'assistant arrive ici, et une alerte part tout de suite (courriel ou Discord dans la vraie version). Essayez : demandez une soumission dans le clavardage." data-en="Every request the assistant takes lands here, and an alert goes out right away (email or Discord in the real version). Try it: ask for a quote in the chat."></p>
+    <div class="alert" id="alert"></div>
+    <table><thead><tr><th data-fr="Heure" data-en="Time"></th><th data-fr="Nom" data-en="Name"></th><th data-fr="Service" data-en="Service"></th><th data-fr="Contact" data-en="Contact"></th></tr></thead><tbody id="leads"><tr><td colspan="4" style="color:#8c95a6" data-fr="Aucune demande pour l'instant." data-en="No requests yet."></td></tr></tbody></table>
+  </div>
+</section>
+
+<footer data-fr="Paysagement Boréal est une entreprise fictive. Démo conçue par Gorsok — sites web, assistants IA et outils Python." data-en="Paysagement Boréal is a fictional business. Demo built by Gorsok — websites, AI assistants and Python tools."></footer>
+
+<button id="chat-btn" onclick="toggleChat()" data-fr="💬 Une question ?" data-en="💬 Questions?"></button>
+<div id="chat" role="dialog" aria-label="Assistant">
+  <div class="chat-h"><b data-fr="Assistant Boréal" data-en="Boréal assistant"></b><small data-fr="Répond tout de suite, en français ou en anglais" data-en="Answers right away, in English or French"></small></div>
+  <div id="log"></div>
+  <div class="chips" id="chips"></div>
+  <form class="in" id="f"><input id="q" autocomplete="off"><button data-fr="Envoyer" data-en="Send"></button></form>
+</div>
+
+<script>
+// Démo autonome : réponses à partir d'une petite fiche d'entreprise, sans IA ni serveur.
+// Dans la vraie version, ces réponses viennent d'un modèle d'IA qui lit la même fiche,
+// et les demandes partent vers le courriel ou Discord du propriétaire.
+let L='fr';
+const T={
+ fr:{hi:"Bonjour ! Je suis l'assistant de Paysagement Boréal. Je peux vous renseigner sur nos services, nos prix, notre zone et nos heures, ou prendre une demande de soumission.",
+  chips:["Vos prix ?","Vous allez à Lévis ?","Heures d'ouverture","Demander une soumission"],
+  price:"Tonte : à partir de 45 $ par visite. Déneigement : à partir de 450 $ par saison. Aménagement : sur soumission, gratuite. Voulez-vous une soumission ?",
+  zone:"Oui ! Nous desservons Québec, Lévis, Sainte-Foy et Charlesbourg. Pour une autre ville, laissez une demande : nous vous dirons si c'est possible.",
+  hours:"Bureau : lundi au vendredi, 8 h à 17 h. Moi, je réponds 24 h sur 24, et je transmets votre demande tout de suite.",
+  snow:"Déneigement : contrat saisonnier de novembre à avril, à partir de 450 $. Voulez-vous une soumission ?",
+  lawn:"Tonte chaque semaine de mai à octobre, à partir de 45 $ la visite. Voulez-vous une soumission ?",
+  land:"Plates-bandes, pavé, murets, plantation : chaque projet est différent, la soumission est gratuite. On commence ?",
+  dunno:"Je n'ai pas cette information. Je peux prendre votre demande et un humain vous répondra dès l'ouverture du bureau. On commence ?",
+  ask:["Parfait ! Quel est votre nom ?","Quel service vous intéresse ? (aménagement, pelouse, déneigement)","Votre courriel ou téléphone pour vous répondre ?"],
+  done:n=>`Merci ${n} ! Votre demande est transmise. Vous aurez une réponse au plus tard le prochain jour ouvrable.`,
+  alert:(n,s)=>`🔔 Nouvelle demande : ${n} — ${s}. (Dans la vraie version : courriel ou message Discord au propriétaire.)`,
+  ph:"Écrivez votre question…", lang:"EN"},
+ en:{hi:"Hi! I'm the Paysagement Boréal assistant. I can tell you about our services, prices, area and hours, or take a quote request.",
+  chips:["Your prices?","Do you go to Lévis?","Opening hours","Get a quote"],
+  price:"Lawn mowing: from $45 per visit. Snow removal: from $450 per season. Landscaping: free quote. Would you like a quote?",
+  zone:"Yes! We serve Quebec City, Lévis, Sainte-Foy and Charlesbourg. For another town, leave a request and we'll tell you if we can.",
+  hours:"Office: Monday to Friday, 8 a.m. to 5 p.m. I answer 24/7 and pass your request on right away.",
+  snow:"Snow removal: seasonal contract, November to April, from $450. Would you like a quote?",
+  lawn:"Weekly mowing from May to October, from $45 per visit. Would you like a quote?",
+  land:"Flower beds, pavers, small walls, planting: every project is different and the quote is free. Shall we start?",
+  dunno:"I don't have that information. I can take your request and a person will reply when the office opens. Shall we start?",
+  ask:["Great! What's your name?","Which service? (landscaping, lawn, snow removal)","Your email or phone so we can reply?"],
+  done:n=>`Thanks ${n}! Your request has been sent. You'll hear back by the next business day at the latest.`,
+  alert:(n,s)=>`🔔 New request: ${n} — ${s}. (Real version: email or Discord message to the owner.)`,
+  ph:"Type your question…", lang:"FR"}
+};
+const $=id=>document.getElementById(id);
+let step=-1, lead={}, started=false;
+function applyLang(){document.documentElement.lang=L;document.querySelectorAll('[data-fr]').forEach(e=>e.innerHTML=e.dataset[L]);$('lang').textContent=T[L].lang;$('q').placeholder=T[L].ph;chips();}
+function say(t,who='bot'){const d=document.createElement('div');d.className='m '+who;d.textContent=t;$('log').appendChild(d);$('log').scrollTop=1e9;}
+function chips(){$('chips').innerHTML='';T[L].chips.forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.onclick=()=>handle(c);$('chips').appendChild(b);});}
+function toggleChat(){if($('chat').classList.contains('open'))$('chat').classList.remove('open');else openChat();}
+function openChat(quote){$('chat').classList.add('open');if(!started){started=true;say(T[L].hi);}if(quote&&step<0)handle(T[L].chips[3]);$('q').focus();}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function answer(q){const s=norm(q);
+ if(/soumission|quote|devis|rendez|appointment|book|oui|yes|commenc|start/.test(s))return 'lead';
+ if(/prix|cout|combien|price|cost|how much|tarif/.test(s))return T[L].price;
+ if(/levis|zone|ville|area|town|city|quebec|sainte|charlesbourg|desserv|serve/.test(s))return T[L].zone;
+ if(/heure|ouvert|hour|open|quand|when/.test(s))return T[L].hours;
+ if(/neige|snow|deneig/.test(s))return T[L].snow;
+ if(/pelouse|tonte|gazon|lawn|mow|grass/.test(s))return T[L].lawn;
+ if(/amenag|pave|plate|landscap|paver|garden|jardin/.test(s))return T[L].land;
+ return T[L].dunno;}
+function handle(q){q=q.trim();if(!q)return;say(q,'me');
+ if(step>=0){const k=['name','service','contact'][step];lead[k]=q;step++;
+  if(step<3){setTimeout(()=>say(T[L].ask[step]),300);}
+  else{step=-1;setTimeout(()=>{say(T[L].done(lead.name));addLead(lead);lead={};},300);}return;}
+ const a=answer(q);if(a==='lead'){step=0;setTimeout(()=>say(T[L].ask[0]),300);}else setTimeout(()=>say(a),300);}
+function addLead(l){const tb=$('leads');if(tb.querySelector('td[colspan]'))tb.innerHTML='';const tr=document.createElement('tr');const t=new Date().toLocaleTimeString(L==='fr'?'fr-CA':'en-CA',{hour:'2-digit',minute:'2-digit'});[t,l.name,l.service,l.contact].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});tb.prepend(tr);const al=$('alert');al.textContent=T[L].alert(l.name,l.service);al.style.display='block';}
+$('f').onsubmit=e=>{e.preventDefault();handle($('q').value);$('q').value='';};
+$('lang').onclick=()=>{L=L==='fr'?'en':'fr';applyLang();};
+applyLang();
+</script>
+</body>
+</html>
