@@ -1,135 +1,235 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gorsok — Python, AI and web tools</title>
-<meta name="description" content="Gorsok builds Python scripts with AI, Windows tools, small business websites with a customer assistant, and game stream kits. English and French.">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Gorsok — freelance game developer: Minecraft plugins (Java/Paper), Bedrock add-ons, RuneLite plugins, server setup. English & French.">
+<title>Gorsok Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#0d1016;--bg2:#151a23;--line:#2b3240;--ink:#e9eef7;--mut:#a9b2c3;--gold:#f3c969;--gold2:#c98a2b;--ok:#7ee787}
-*{box-sizing:border-box;margin:0;padding:0}
-html{background:#0d1016}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at 25% 0%,#1d2330,#0d1016 900px) no-repeat #0d1016;color:var(--ink);line-height:1.6}
-a{color:var(--gold)}
-.wrap{max-width:1040px;margin:auto;padding:0 20px}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
-.brand svg{width:40px;height:40px}
-nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-size:15px}
-.lang{border:1px solid var(--line);background:var(--bg2);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;margin-left:14px}
-.hero{padding:56px 0 40px}
-.hero h1{font-size:48px;line-height:1.08;letter-spacing:-1px;max-width:780px}
-.hero h1 span{color:var(--gold)}
-.hero p{color:var(--mut);font-size:19px;max-width:680px;margin:18px 0 26px}
-.btn{display:inline-block;background:var(--gold);color:#0d1016;font-weight:700;border-radius:10px;padding:12px 20px;text-decoration:none;margin-right:10px}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-h2{font-size:30px;margin:48px 0 18px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px}
-.card.gold{border-color:var(--gold2)}
-.tag{display:inline-block;font-size:12px;letter-spacing:1.5px;color:#8c95a6;margin-bottom:8px;text-transform:uppercase}
-.card h3{font-size:20px;margin-bottom:8px}
-.card p{color:var(--mut);font-size:15px}
-.card ul{list-style:none;margin-top:10px}
-.card li{color:#d7dde8;font-size:15px;padding-left:20px;position:relative}
-.card li:before{content:"✓";color:var(--ok);position:absolute;left:0}
-.links{margin-top:14px;font-size:15px}
-.links a{margin-right:14px}
-.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.promise div{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:15px;color:#d7dde8}
-.promise b{display:block;color:var(--gold);margin-bottom:4px}
-footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 40px;color:var(--mut);font-size:14px}
-@media (max-width:800px){.grid,.grid3,.promise{grid-template-columns:1fr}.hero h1{font-size:34px}nav a{display:none}}
+/* Layout: one narrow reading column; a "spec sheet" hero, then services, projects, method, contact */
+:root{
+  --bg:#f5f6f2; --surface:#ffffff; --fg:#1b1f1c; --muted:#5b625d; --line:#dcdfd8;
+  --accent:#1f6b52; --accent-soft:#e2efe8; --gold:#a8771c;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121513; --surface:#1a1e1b; --fg:#e8ebe6; --muted:#a2aaa4; --line:#2c322e;
+  --accent:#5ec29b; --accent-soft:#1d3229; --gold:#e0b45c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121513; --surface:#1a1e1b; --fg:#e8ebe6; --muted:#a2aaa4; --line:#2c322e;
+  --accent:#5ec29b; --accent-soft:#1d3229; --gold:#e0b45c; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:flex;flex-direction:column;gap:64px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.handle{font-family:var(--f-mono);font-size:14px;color:var(--muted)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{font:500 13px var(--f-mono);border:0;background:none;color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--bg)}
+
+.hero{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:var(--f-display);font-stretch:118%;font-weight:800;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.lede{font-size:1.15rem;max-width:58ch;margin:0;color:var(--fg)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:6px}
+.facts div{background:var(--surface);padding:12px 14px;min-width:0}
+.facts dt{font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:2px 0 0;font-weight:500}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:11px 18px;border-radius:8px;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{color:var(--accent)}
+
+h2{font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:1.7rem;margin:0;text-wrap:balance}
+.sec{display:flex;flex-direction:column;gap:20px}
+.sec>p{margin:0;color:var(--muted);max-width:62ch}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.svc{border-top:3px solid var(--accent);background:var(--surface);padding:16px 18px;border-radius:0 0 8px 8px;display:flex;flex-direction:column;gap:6px}
+.svc h3{margin:0;font-size:1.05rem}
+.svc p{margin:0;color:var(--muted);font-size:.95rem}
+.svc .ex{font-family:var(--f-mono);font-size:12.5px;color:var(--fg);background:var(--accent-soft);padding:6px 9px;border-radius:6px;margin-top:4px}
+
+.proj{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.card{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.card-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card h3{margin:0;font-family:var(--f-display);font-stretch:112%;font-size:1.35rem}
+.status{font:500 12px var(--f-mono);padding:3px 9px;border-radius:999px;border:1px solid currentColor}
+.status.live{color:var(--accent)}
+.status.wip{color:var(--gold)}
+.card p{margin:0;max-width:64ch}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.split h4{margin:0 0 6px;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.split ul{margin:0;padding-left:18px}
+.split li{margin-bottom:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font:500 12px var(--f-mono);border:1px solid var(--line);padding:2px 8px;border-radius:5px;color:var(--muted)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);font:600 15px var(--f-mono);color:var(--accent);border:1.5px solid var(--accent);border-radius:50%;width:32px;height:32px;display:grid;place-items:center}
+.steps strong{display:block}
+.steps span{color:var(--muted)}
+
+.contact{border-top:1px solid var(--line);padding-top:28px}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.links a{display:flex;flex-direction:column;text-decoration:none;color:var(--fg);border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:12px 14px}
+.links a:hover{border-color:var(--accent)}
+.links small{font-family:var(--f-mono);color:var(--muted);font-size:12px;overflow-wrap:anywhere}
+footer{font:12px var(--f-mono);color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.links a,.btn{transition:border-color .15s,transform .15s}.btn:hover{transform:translateY(-1px)}}
 </style>
-</head>
-<body>
+
+</head><body>
 <div class="wrap">
-<header>
-  <div class="brand">
-    <svg viewBox="0 0 800 800" aria-hidden="true"><defs><linearGradient id="g" x1="170" y1="170" x2="630" y2="630" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F3C969"/><stop offset="1" stop-color="#C98A2B"/></linearGradient></defs><rect width="800" height="800" rx="400" fill="#151a23"/><path d="M 562.6 237.4 A 230 230 0 1 0 630 400" fill="none" stroke="url(#g)" stroke-width="88" stroke-linecap="round"/><path d="M 630 400 L 495 400" fill="none" stroke="url(#g)" stroke-width="88" stroke-linecap="round"/><path d="M 300 335 L 362 400 L 300 465" fill="none" stroke="#E9EEF7" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Gorsok
-  </div>
-  <nav>
-    <a href="#work" data-en="Work" data-fr="Projets"></a>
-    <a href="#services" data-en="Services" data-fr="Services"></a>
-    <a href="#contact" data-en="Contact" data-fr="Contact"></a>
-    <button class="lang" id="lang">FR</button>
-  </nav>
-</header>
+  <header class="top">
+    <span class="handle">gorsok · Québec, Canada</span>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="btn-en" type="button" aria-pressed="true" data-set="en">EN</button>
+      <button id="btn-fr" type="button" aria-pressed="false" data-set="fr">FR</button>
+    </div>
+  </header>
 
-<section class="hero">
-  <h1 data-en="I build tools that <span>save small businesses time.</span>" data-fr="Je crée des outils qui <span>font gagner du temps aux petites entreprises.</span>"></h1>
-  <p data-en="Python scripts with AI, Windows tools, websites with a customer assistant, and stream kits. Fixed price before I start, tested on your real examples, explained in plain words. English and French." data-fr="Scripts Python avec IA, outils Windows, sites web avec assistant client et kits de stream. Prix fixe avant de commencer, testé sur vos vrais exemples, expliqué en mots simples. Français et anglais."></p>
-  <a class="btn" href="demo-receptionniste/" data-en="Try the AI receptionist demo" data-fr="Essayer la démo de réceptionniste IA"></a>
-  <a class="btn ghost" href="https://www.fiverr.com/gorsok" data-en="Hire me on Fiverr" data-fr="M'embaucher sur Fiverr"></a>
-</section>
+  <section class="hero">
+    <span class="eyebrow" data-en="Freelance developer" data-fr="Développeur à la pige">Freelance developer</span>
+    <h1>Gorsok</h1>
+    <p class="lede" data-en="I build game plugins, Minecraft servers and small Python tools that solve a real problem. You tell me what you want; I build it, test it, and explain it to you in plain words." data-fr="Je crée des plugins de jeu, des serveurs Minecraft et de petits outils Python qui règlent un vrai problème. Vous me dites ce que vous voulez; je le construis, je le teste et je vous l'explique en mots simples.">I build game plugins, Minecraft servers and small Python tools that solve a real problem. You tell me what you want; I build it, test it, and explain it to you in plain words.</p>
+    <dl class="facts">
+      <div><dt data-en="Focus" data-fr="Spécialité">Focus</dt><dd data-en="Game plugins & servers" data-fr="Plugins et serveurs de jeu">Game plugins & servers</dd></div>
+      <div><dt data-en="Languages" data-fr="Langues">Languages</dt><dd data-en="English · French" data-fr="Français · anglais">English · French</dd></div>
+      <div><dt data-en="Tech" data-fr="Technos">Tech</dt><dd>Java · Python · JavaScript</dd></div>
+      <div><dt data-en="Track record" data-fr="Preuve">Track record</dt><dd data-en="Plugins approved on RuneLite" data-fr="Plugins approuvés sur RuneLite">Plugins approved on RuneLite</dd></div>
+    </dl>
+    <div class="cta">
+      <a class="btn primary" href="https://www.fiverr.com/gorsok" target="_blank" rel="noopener" data-en="Hire me on Fiverr" data-fr="M'engager sur Fiverr">Hire me on Fiverr</a>
+      <a class="btn ghost" href="#projects" data-en="See my work" data-fr="Voir mes projets">See my work</a>
+    </div>
+  </section>
 
-<h2 id="work" data-en="Work" data-fr="Projets"></h2>
-<div class="grid">
-  <div class="card gold">
-    <div class="tag" data-en="Demo · small businesses" data-fr="Démo · petites entreprises"></div>
-    <h3 data-en="AI receptionist for a small business website" data-fr="Réceptionniste IA pour le site d'une petite entreprise"></h3>
-    <p data-en="Small businesses lose customers when nobody answers at night. This assistant answers questions, takes quote requests and alerts the owner right away." data-fr="Les petites entreprises perdent des clients quand personne ne répond le soir. Cet assistant répond aux questions, prend les demandes de soumission et alerte le propriétaire tout de suite."></p>
-    <ul>
-      <li data-en="Answers in English and French" data-fr="Répond en français et en anglais"></li>
-      <li data-en="Takes requests and shows them in an owner panel" data-fr="Prend les demandes et les affiche côté propriétaire"></li>
-      <li data-en="Works on phones" data-fr="Fonctionne sur téléphone"></li>
-    </ul>
-    <div class="links"><a href="demo-receptionniste/" data-en="Try the demo →" data-fr="Essayer la démo →"></a></div>
-  </div>
-  <div class="card">
-    <div class="tag" data-en="Own project · Windows app" data-fr="Projet personnel · appli Windows"></div>
-    <h3>OSRS toolkit</h3>
-    <p data-en="A free Windows toolkit for game players: live dashboard, alerts and an AI connector, plus two plugins approved on the RuneLite Plugin Hub." data-fr="Une boîte à outils Windows gratuite pour les joueurs : tableau de bord en direct, alertes et connecteur IA, plus deux plugins approuvés sur le RuneLite Plugin Hub."></p>
-    <ul>
-      <li data-en="Tray app, auto-start and installer" data-fr="Icône dans la barre des tâches, démarrage auto et installateur"></li>
-      <li data-en="Installer built automatically by GitHub Actions" data-fr="Installateur construit automatiquement par GitHub Actions"></li>
-    </ul>
-    <div class="links"><a href="https://github.com/Gorsokk/osrs-toolkit">GitHub →</a></div>
-  </div>
-  <div class="card">
-    <div class="tag" data-en="Own project · streaming" data-fr="Projet personnel · stream"></div>
-    <h3 data-en="Game stream kit" data-fr="Kit de stream pour un jeu"></h3>
-    <p data-en="My own Twitch kit: overlays and scenes in the game's mood, chat commands with live game info, and an AI co-host that answers viewer questions." data-fr="Mon propre kit Twitch : overlays et scènes dans l'ambiance du jeu, commandes de chat avec infos de jeu en direct, et un co-animateur IA qui répond aux questions des spectateurs."></p>
-    <div class="links"><a href="https://www.fiverr.com/gorsok/set-up-a-custom-twitch-stream-kit-for-your-game" data-en="Get one for your game →" data-fr="En avoir un pour votre jeu →"></a></div>
-  </div>
-  <div class="card">
-    <div class="tag" data-en="Service" data-fr="Service"></div>
-    <h3 data-en="Python bug fixes, explained" data-fr="Correction de scripts Python, expliquée"></h3>
-    <p data-en="Your script crashes? I find the real cause, fix it, test it, and send a short note: the problem, the fix, and how to avoid it next time." data-fr="Votre script plante ? Je trouve la vraie cause, je corrige, je teste, et j'envoie une courte note : le problème, la correction et comment l'éviter."></p>
-    <div class="links"><a href="https://www.fiverr.com/gorsok/debug-and-fix-errors-in-your-python-script" data-en="Fix my script →" data-fr="Corriger mon script →"></a></div>
-  </div>
+  <section class="sec">
+    <h2 data-en="What I can build for you" data-fr="Ce que je peux faire pour vous">What I can build for you</h2>
+    <div class="services">
+      <article class="svc">
+        <h3 data-en="Minecraft Java plugins" data-fr="Plugins Minecraft Java">Minecraft Java plugins</h3>
+        <p data-en="Custom Paper/Spigot plugins: new commands, menus, game rules, economy." data-fr="Plugins Paper/Spigot sur mesure : commandes, menus, règles de jeu, économie.">Custom Paper/Spigot plugins: new commands, menus, game rules, economy.</p>
+        <span class="ex" data-en="e.g. a staff menu where each rank sees only its own commands" data-fr="ex. un menu staff où chaque rôle voit seulement ses commandes">e.g. a staff menu where each rank sees only its own commands</span>
+      </article>
+      <article class="svc">
+        <h3 data-en="Minecraft Bedrock add-ons" data-fr="Add-ons Minecraft Bedrock">Minecraft Bedrock add-ons</h3>
+        <p data-en="Spells, items, crafting systems and effects for Bedrock worlds." data-fr="Sorts, objets, systèmes d'artisanat et effets pour mondes Bedrock.">Spells, items, crafting systems and effects for Bedrock worlds.</p>
+        <span class="ex" data-en="e.g. a gem and jewelry crafting system" data-fr="ex. un système d'artisanat de bijoux et de gemmes">e.g. a gem and jewelry crafting system</span>
+      </article>
+      <article class="svc">
+        <h3 data-en="Game server setup" data-fr="Installation de serveur">Game server setup</h3>
+        <p data-en="Your server installed, configured and reachable by your players." data-fr="Votre serveur installé, configuré et accessible à vos joueurs.">Your server installed, configured and reachable by your players.</p>
+        <span class="ex" data-en="e.g. Bedrock Dedicated Server + whitelist + Discord sign-up" data-fr="ex. Bedrock Dedicated Server + liste blanche + inscription Discord">e.g. Bedrock Dedicated Server + whitelist + Discord sign-up</span>
+      </article>
+      <article class="svc">
+        <h3 data-en="Python, AI & Windows tools" data-fr="Outils Python, IA et Windows">Python, AI & Windows tools</h3>
+        <p data-en="Small apps and automations that save you time, plus bug fixing." data-fr="Petites applis et automatisations qui vous font gagner du temps, et débogage.">Small apps and automations that save you time, plus bug fixing.</p>
+        <span class="ex" data-en="e.g. a script that sorts and renames hundreds of files" data-fr="ex. un script qui trie et renomme des centaines de fichiers">e.g. a script that sorts and renames hundreds of files</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <h2 data-en="Projects" data-fr="Projets">Projects</h2>
+    <div class="proj">
+      <article class="card">
+        <div class="card-head">
+          <h3 data-en="Old School RuneScape plugins" data-fr="Plugins Old School RuneScape">Old School RuneScape plugins</h3>
+          <span class="status live" data-en="Published" data-fr="Publiés">Published</span>
+        </div>
+        <p data-en="Plugins for RuneLite, the most popular client for Old School RuneScape. Every plugin on the RuneLite Plugin Hub is reviewed by the RuneLite team before players can install it. Mine passed that review and are live." data-fr="Des plugins pour RuneLite, le client le plus utilisé d'Old School RuneScape. Chaque plugin du Plugin Hub est vérifié par l'équipe RuneLite avant que les joueurs puissent l'installer. Les miens ont passé cette vérification et sont en ligne.">Plugins for RuneLite, the most popular client for Old School RuneScape. Every plugin on the RuneLite Plugin Hub is reviewed by the RuneLite team before players can install it. Mine passed that review and are live.</p>
+        <div class="split">
+          <div>
+            <h4 data-en="What it shows" data-fr="Ce que ça démontre">What it shows</h4>
+            <ul>
+              <li data-en="Code that meets a strict outside review" data-fr="Du code qui passe une vérification externe stricte">Code that meets a strict outside review</li>
+              <li data-en="Reading data straight from the game client" data-fr="Lecture des données directement du client de jeu">Reading data straight from the game client</li>
+              <li data-en="Kept up to date on GitHub" data-fr="Maintenus à jour sur GitHub">Kept up to date on GitHub</li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-en="Where to see it" data-fr="Où le voir">Where to see it</h4>
+            <ul>
+              <li><a href="https://runelite.net/plugin-hub" target="_blank" rel="noopener">RuneLite Plugin Hub</a></li>
+              <li><a href="https://github.com/Gorsokk" target="_blank" rel="noopener">github.com/Gorsokk</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tags"><span>Java</span><span>RuneLite API</span><span>Gradle</span><span>GitHub</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>Eternal Burden</h3>
+          <span class="status wip" data-en="In development" data-fr="En développement">In development</span>
+        </div>
+        <p data-en="My own Minecraft Bedrock game: a custom add-on, a generated world and a dedicated server. Players cast spells with their own visual effects, craft jewelry from rare gems, and live in an economy built around star fragments." data-fr="Mon propre jeu Minecraft Bedrock : un add-on sur mesure, un monde généré et un serveur dédié. Les joueurs lancent des sorts avec leurs propres effets visuels, fabriquent des bijoux avec des gemmes rares et vivent dans une économie basée sur les fragments stellaires.">My own Minecraft Bedrock game: a custom add-on, a generated world and a dedicated server. Players cast spells with their own visual effects, craft jewelry from rare gems, and live in an economy built around star fragments.</p>
+        <div class="split">
+          <div>
+            <h4 data-en="What I built" data-fr="Ce que j'ai construit">What I built</h4>
+            <ul>
+              <li data-en="Gameplay systems: spells, custom economy, crafting, jail &amp; justice" data-fr="Systèmes de jeu : sorts, économie sur mesure, artisanat, prison et justice">Gameplay systems: spells, custom economy, crafting, jail &amp; justice</li>
+              <li data-en="RPG progression: bosses, gear score, alignment leaderboards, random world events" data-fr="Progression RPG : boss, gear score, classements par alignement, événements aléatoires">RPG progression: bosses, gear score, alignment leaderboards, random world events</li>
+              <li data-en="A world generator with lakes, rivers and coasts" data-fr="Un générateur de monde avec lacs, rivières et côtes">A world generator with lakes, rivers and coasts</li>
+              <li data-en="A self-hosted server open to the public" data-fr="Un serveur auto-hébergé ouvert au public">A self-hosted server open to the public</li>
+              <li data-en="A bilingual Discord with player applications" data-fr="Un Discord bilingue avec candidatures de joueurs">A bilingual Discord with player applications</li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-en="Where to see it" data-fr="Où le voir">Where to see it</h4>
+            <ul>
+              <li><a href="https://discord.gg/FXVphHXvYT" target="_blank" rel="noopener">Discord · Eternal Burden</a></li>
+              <li><a href="https://twitch.tv/blodvis" target="_blank" rel="noopener" data-en="Live builds on Twitch" data-fr="Développement en direct sur Twitch">Live builds on Twitch</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tags"><span>Bedrock Script API</span><span>JavaScript</span><span>Bedrock Dedicated Server</span><span>Python</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 data-en="How a job goes" data-fr="Comment se passe un contrat">How a job goes</h2>
+    <ol class="steps">
+      <li><div><strong data-en="You describe your idea" data-fr="Vous décrivez votre idée">You describe your idea</strong><span data-en="No technical words needed. I ask questions until it is clear." data-fr="Pas besoin de termes techniques. Je pose des questions jusqu'à ce que ce soit clair.">No technical words needed. I ask questions until it is clear.</span></div></li>
+      <li><div><strong data-en="I build and test it" data-fr="Je le construis et le teste">I build and test it</strong><span data-en="I test in the real game or on your setup, not just in theory." data-fr="Je teste dans le vrai jeu ou sur votre installation, pas seulement en théorie.">I test in the real game or on your setup, not just in theory.</span></div></li>
+      <li><div><strong data-en="I explain what you got" data-fr="Je vous explique ce que vous recevez">I explain what you got</strong><span data-en="A short guide in plain words: what it does and how to use it." data-fr="Un court guide en mots simples : ce que ça fait et comment l'utiliser.">A short guide in plain words: what it does and how to use it.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="sec contact">
+    <h2 data-en="Get in touch" data-fr="Me joindre">Get in touch</h2>
+    <p data-en="The easiest way to start a project is a message on Fiverr. I answer in English or French." data-fr="Le plus simple pour démarrer un projet : un message sur Fiverr. Je réponds en français ou en anglais.">The easiest way to start a project is a message on Fiverr. I answer in English or French.</p>
+    <div class="links">
+      <a href="https://www.fiverr.com/gorsok" target="_blank" rel="noopener"><span>Fiverr</span><small>fiverr.com/gorsok</small></a>
+      <a href="https://github.com/Gorsokk" target="_blank" rel="noopener"><span>GitHub</span><small>github.com/Gorsokk</small></a>
+      <a href="https://twitch.tv/blodvis" target="_blank" rel="noopener"><span>Twitch</span><small>twitch.tv/blodvis</small></a>
+      <a href="https://ko-fi.com/gorsok" target="_blank" rel="noopener"><span>Ko-fi</span><small>ko-fi.com/gorsok</small></a>
+    </div>
+  </section>
+
+  <footer>© 2026 Gorsok</footer>
 </div>
 
-<h2 id="services" data-en="Services" data-fr="Services"></h2>
-<div class="grid3">
-  <div class="card"><h3 data-en="Automation with AI" data-fr="Automatisation avec IA"></h3><p data-en="Scripts that collect, clean and merge data, send alerts and reports, with an AI step when it helps." data-fr="Scripts qui collectent, nettoient et regroupent des données, envoient alertes et rapports, avec une étape IA quand c'est utile."></p><div class="links"><a href="https://www.fiverr.com/gorsok/automate-your-tasks-with-python-scripts-and-ai">Fiverr →</a></div></div>
-  <div class="card"><h3 data-en="Windows tools" data-fr="Outils Windows"></h3><p data-en="Small desktop apps with a clean interface and a one-click installer, instead of a script you run by hand." data-fr="Petites applis avec une interface claire et un installateur en un clic, au lieu d'un script à lancer à la main."></p><div class="links"><a href="https://www.fiverr.com/gorsok/build-a-custom-windows-desktop-app-or-tool-in-python">Fiverr →</a></div></div>
-  <div class="card"><h3 data-en="Websites with an assistant" data-fr="Sites web avec assistant"></h3><p data-en="Simple business websites (1 to 5 pages) with a customer assistant that answers and takes requests." data-fr="Sites simples pour entreprises (1 à 5 pages) avec un assistant qui répond aux clients et prend les demandes."></p><div class="links"><a href="#contact" data-en="Ask me →" data-fr="Me demander →"></a></div></div>
-</div>
-
-<h2 data-en="My guarantees" data-fr="Mes garanties"></h2>
-<div class="promise">
-  <div><b data-en="Fixed price" data-fr="Prix fixe"></b><span data-en="A clear plan and price before you pay." data-fr="Un plan et un prix clairs avant de payer."></span></div>
-  <div><b data-en="Easy setup" data-fr="Installation facile"></b><span data-en="Step-by-step guide, plus screen-share help." data-fr="Guide pas à pas, plus aide par partage d'écran."></span></div>
-  <div><b data-en="14 days of fixes" data-fr="14 jours de corrections"></b><span data-en="Free fixes if it doesn't work as agreed." data-fr="Corrections gratuites si ça ne marche pas comme convenu."></span></div>
-  <div><b data-en="Plain words" data-fr="Mots simples"></b><span data-en="Every delivery explained without jargon." data-fr="Chaque livraison expliquée sans jargon."></span></div>
-</div>
-
-<h2 id="contact" data-en="Contact" data-fr="Contact"></h2>
-<div class="card">
-  <p data-en="The simplest way to work with me is through Fiverr: payment is protected and you can message me before ordering. Tell me what you need; I reply with a plan and a fixed price." data-fr="Le plus simple pour travailler avec moi, c'est Fiverr : le paiement est protégé et vous pouvez m'écrire avant de commander. Dites-moi ce dont vous avez besoin ; je réponds avec un plan et un prix fixe."></p>
-  <div class="links" style="margin-top:16px"><a class="btn" href="https://www.fiverr.com/gorsok" data-en="Message me on Fiverr" data-fr="M'écrire sur Fiverr"></a><a href="https://github.com/Gorsokk">GitHub</a></div>
-</div>
-
-<footer data-en="© 2026 Gorsok · Canada · English and French" data-fr="© 2026 Gorsok · Canada · français et anglais"></footer>
-</div>
 <script>
-let L=(navigator.language||'en').toLowerCase().startsWith('fr')?'fr':'en';
-function apply(){document.documentElement.lang=L;document.querySelectorAll('[data-en]').forEach(e=>e.innerHTML=e.dataset[L]);document.getElementById('lang').textContent=L==='fr'?'EN':'FR';}
-document.getElementById('lang').onclick=()=>{L=L==='fr'?'en':'fr';apply();};
-apply();
+(function(){
+  function setLang(l){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-'+l+']').forEach(function(el){el.textContent=el.getAttribute('data-'+l)});
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===l))});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+  setLang(saved==='fr'?'fr':'en');
+})();
 </script>
-</body>
-</html>
+
+</body></html>
